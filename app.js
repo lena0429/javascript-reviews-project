@@ -62,3 +62,28 @@ function showPerson(person){
       job.textContent = item.job;
       info.textContent = item.text;
 }
+
+// show next review by clicking the next button
+nextBtn.addEventListener("click", () => {
+    currentItem++;
+    if ( currentItem > reviews.length - 1) {
+        currentItem = 0
+    };
+    showPerson(currentItem)
+})
+
+// show previous review by clicking the prev button
+prevBtn.addEventListener("click", () => {
+    currentItem--;
+    if (currentItem < 0 ) {
+        currentItem = reviews.length - 1;
+    }
+    showPerson(currentItem); 
+})
+
+// display a random review 
+// get a random number - the range should be 0 - 3
+randomBtn.addEventListener("click", () => {
+    currentItem = Math.floor(Math.random() * reviews.length)
+    showPerson(currentItem)
+})
